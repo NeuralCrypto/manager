@@ -16,21 +16,47 @@ class Pastas:
                     if c["modos"][a["sigla"]]:
                         # Pasta Base - Conjuntos 
                         endereco = None
-                        for modo in c["modos"][a["sigla"]]:
-                            endereco = PASTA_CONJ_MODO.format(
+                        endereco = PASTA_BASE_CONJ.format(
+                            largura=l["nome"],
+                            algoritmo=a["sigla"],
+                            computador=c["nome"]
+                        )
+                        try:
+                            os.makedirs(endereco)
+                        except:
+                            continue
+
+                        # Pasta Base - Chaves
+                        if a["sigla"] == "AES" or a["sigla"] == "DES": 
+                            endereco = None
+                            endereco = PASTA_BASE_CHAVES.format(
                                 largura=l["nome"],
                                 algoritmo=a["sigla"],
-                                computador=c["nome"],
-                                modo=modo
+                                computador=c["nome"]
                             )
+                            try:
+                                os.makedirs(endereco)
+                            except:
+                                continue
+                        
+                        # Pasta Base - Datasets 
+                        endereco = None
+                        endereco = PASTA_BASE_DATASETS.format(
+                            largura=l["nome"],
+                            algoritmo=a["sigla"],
+                            computador=c["nome"]
+                        )
+                        try:
                             os.makedirs(endereco)
+                        except:
+                            continue
                         
                         # Pasta Base - Dados
                         endereco = None
                         for modo in c["modos"][a["sigla"]]:
                             for base in c["bases"]:
                                 for chave in ALGO_CHAVE_PREFIX[a["sigla"]]:
-                                    endereco = PASTA_BASE_CHAVE.format(
+                                    endereco = PASTA_DADOS_CHAVE.format(
                                         largura=l["nome"],
                                         algoritmo=a["sigla"],
                                         computador=c["nome"],
@@ -38,7 +64,10 @@ class Pastas:
                                         base=base, 
                                         chave=chave
                                     )
-                                    os.makedirs(endereco)
+                                    try:
+                                        os.makedirs(endereco)
+                                    except:
+                                        continue
 
                         # Pasta Codigo
                         endereco = None
@@ -47,7 +76,10 @@ class Pastas:
                                         algoritmo=a["sigla"],
                                         computador=c["nome"]
                                     )
-                        os.makedirs(endereco)
+                        try:
+                            os.makedirs(endereco)
+                        except:
+                            continue
 
                         # Pasta Resultados
                         endereco = None
@@ -56,7 +88,11 @@ class Pastas:
                                         algoritmo=a["sigla"],
                                         computador=c["nome"]
                                     )
-                        os.makedirs(endereco)
+                        try:
+                            os.makedirs(endereco)
+                        except:
+                            continue
+
 
                         # Pasta Experimentos
                         endereco = None
@@ -65,7 +101,11 @@ class Pastas:
                                         algoritmo=a["sigla"],
                                         computador=c["nome"]
                                     )
-                        os.makedirs(endereco)
+                        try:
+                            os.makedirs(endereco)
+                        except:
+                            continue
+
 
                         endereco = None
                         endereco = PASTA_EXP_JSON.format(
@@ -73,6 +113,10 @@ class Pastas:
                                         algoritmo=a["sigla"],
                                         computador=c["nome"]
                                     )
-                        os.makedirs(endereco)
+                        try:
+                            os.makedirs(endereco)
+                        except:
+                            continue
+
                     else:
                         continue
