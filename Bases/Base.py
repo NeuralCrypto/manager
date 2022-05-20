@@ -1,3 +1,8 @@
+from Bases.Criptos.AES import AES
+from Bases.Criptos.DES import DES
+from Bases.Criptos.ALE import ALE
+from Bases.Criptos.SEM import SEM
+
 class Base:
     def __init__(self):
         pass
@@ -18,10 +23,25 @@ class Base:
         elif tam == 128:
             pass
     
-    def gerar(self, tipo):
+    def ambientar(self, tipo):
         if tipo == "Conjunto":
             pass
 
         if tipo == "Base":
             pass
-         
+    
+    def selecionar(self, opcao):
+        
+        algoritmo = None
+        if opcao == "AES":
+            algoritmo = AES()
+        elif opcao == "DES":
+            algoritmo = DES()
+        elif opcao == "ALE":
+            algoritmo = ALE()
+        elif opcao == "SEM":
+            algoritmo = SEM()
+        return algoritmo
+        
+    def gerar():
+        algoritmo().encriptar(simples, chave, modo_op, iv, nonce)
