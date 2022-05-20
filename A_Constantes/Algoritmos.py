@@ -23,6 +23,16 @@ TIPO_DES = {
     "prefixo": {"A": 64}
 }
 
+TIPO_SEM = {
+    "tam_bloco": [64],
+    "tam_IV":    [0]
+}
+
+TIPO_ALE = {
+    "tam_bloco": [64],
+    "tam_IV":    [0]
+}
+
 ALGO_CHAVE_PREFIX = {
     "DES": {"A": 64},
     "AES": {"A": 128,   "B": 192,   "C": 256},
@@ -34,9 +44,9 @@ TAM_MSGS_B = {
     "64":  int(64/8),
     "128": int(128/8),
     "192": int(192/8),
-    "256": int(192/8),
-    "384": int(192/8),
-    "512": int(192/8)
+    "256": int(256/8),
+    "384": int(384/8),
+    "512": int(512/8)
 }
 
 # TIPO_SEM_1 = {
@@ -83,4 +93,11 @@ ALGORITMOS_MODOS = {
     "DES": ["ECB", "CBC", "CFB", "OFB", "CTR"],
     "SEM": [],
     "INV": []
+}
+
+ALGORITMOS_IV = {
+    "AES": 128,
+    "DES": 64,
+    "ALE": 0,
+    "SEM": 0
 }
