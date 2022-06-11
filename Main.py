@@ -1,6 +1,7 @@
-from Bases.Chave        import Chave
-from Bases.Conjunto     import Conjunto
-from Estrutura.Pastas   import Pastas
+from Bases.Chave                import Chave
+from Bases.Conjunto             import Conjunto
+from Estrutura.Pastas           import Pastas
+from Experimentos.Experimentos  import Experimentos
 #from Bases.Base         import Base
 
 
@@ -15,17 +16,18 @@ class Main:
         print("2. Coleta e organização dos resultados")
         
         print("PASTAS: Estruturação")
-        #Pastas().gerar()
+        Pastas().gerar()
         
         print("BASE: Geração")
         print("1.. Iniciando geração de chaves aleatórias")
-        #Chave().gerar()
+        Chave().gerar()
         print("2.. Iniciando geração de conjuntos de mensagens simples...")
-        #Conjunto().distribuir()
+        Conjunto().distribuir()
         print("3.. Distribuição dos arquivos nos computadores respectivos")
-        #Conjunto().copiar()
+        Conjunto().copiar()
         
         print("EXPERIMENTOS: Geração")
+        Experimentos().escolher()
 
 if __name__ == "__main__":
     Main().inicio()
