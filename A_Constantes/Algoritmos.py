@@ -1,4 +1,4 @@
-TIPOS_ALGORITMOS = ["AES", "DES", "SEM", "INV"]
+TIPOS_ALGORITMOS = ["AES", "DES", "SEM", "ALE"]
 
 TIPO_AES = {
     "tam_bloco": [128],

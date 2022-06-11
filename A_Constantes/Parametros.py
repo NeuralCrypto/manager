@@ -4,6 +4,13 @@ SUB_EXPERIMENTOS = 4
 # ------------- TOPOLOGIAS -------------------------
 # ==================================================
 
+ALGORITMO_TOPOLOGIA = {
+    "DES": [64, 128, 256, 384, 512],
+    "AES": [128, 256, 384, 512],
+    "SEM": [64, 128, 256, 384, 512],
+    "ALE": [64, 128, 256, 384, 512]
+}
+
 TOPOLOGIAS = [
         {"nome": "S1", "tamanhos":[128, 256, 384, 512], "camadas": [2], "fator": [4]}, 
 
@@ -26,9 +33,6 @@ BLOCOS = [
 # ==================================================
 # ------------ EXPERIMENTOS ------------------------
 # ==================================================
-
-ARQUIVO_EXP      = "[{estado}]Experimento {topologia} {computador}.csv"
-ARQUIVO_EXP_JSON = "[{estado}]Experimento {topologia} {computador}.json"
 HIPER_PARAMETROS = {
     "estado"      : ["N", "E", "F"],
     "nome_exp"    : ["EXP_{blocos}_{modo}_{tipo_exp}_{base}{chave}_{topologia}_{indice}"],
