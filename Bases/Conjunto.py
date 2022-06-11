@@ -106,6 +106,7 @@ class Conjunto:
         Copia os arquivos .bin (datasets) para os computadores.
         """
         for l in LARGURA_ANALISE:
+            print("3.1.. Copiando para ", l["nome"])
             for a in ALGORITMOS:                
                 for c in COMPUTADORES:
                     for b in c["bases"]:

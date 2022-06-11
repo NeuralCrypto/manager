@@ -2,7 +2,6 @@ import os
 
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
-from A_Constantes.Arquivos import ARQ_CHAVE
 from A_Constantes.Tamanhos import SUB_EXPERIMENTOS
 
 class AES:
