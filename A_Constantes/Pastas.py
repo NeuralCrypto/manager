@@ -9,10 +9,7 @@ ALGORITMOS = [
 LARGURA_ANALISE = [
     {"nome": "1-bit",    "tamanho": 1},
     {"nome": "8-bit",    "tamanho": 8},
-    {"nome": "32-bit",   "tamanho": 32},
-    {"nome": "16-bit",   "tamanho": 16},
-    {"nome": "64-bit",   "tamanho": 64},
-    {"nome": "128-bit",  "tamanho": 128}
+    {"nome": "16-bit",   "tamanho": 16}
 ]
 
 PASTA_INICIAL    = os.path.join(os.path.expanduser("~"), "Mestrado", "NC")

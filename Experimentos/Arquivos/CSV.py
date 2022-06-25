@@ -67,7 +67,6 @@ class CSV:
         
         experimento = {}
         linha       = []
-        print(dados)
         for indice in dados:
             if indice == "CAMADAS":
                 for ind in dados[indice][1]:

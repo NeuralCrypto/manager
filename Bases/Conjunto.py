@@ -141,28 +141,50 @@ class Conjunto:
                                         )
 
                                         try:
+                                            print("Pasta não existe. Gerando pasta: ", end_pasta)
                                             os.makedirs(end_pasta)
+                                            end_origem = os.path.join(PASTA_DATA_MES, ARQ_NOME_DATA)
+                                            end_origem = end_origem.format(
+                                                largura=l["nome"],
+                                                algoritmo=a["sigla"],
+                                                computador=c["nome"],
+                                                ano=ano,
+                                                mes=mes,
+                                                dia=dia
+                                            )
+
+                                            end_destino = os.path.join(PASTA_BASE_MES, ARQ_NOME_DATA)
+                                            end_destino = end_destino.format(
+                                                largura=l["nome"],
+                                                algoritmo=a["sigla"],
+                                                computador=c["nome"],
+                                                ano=ano,
+                                                mes=mes,
+                                                dia=dia
+                                            )
+
+                                            shutil.copyfile(end_origem, end_destino)
                                         except:
-                                            continue
+                                            print("Adicionando arquivo ao destino: ", end_destino)
+                                            end_origem = os.path.join(PASTA_DATA_MES, ARQ_NOME_DATA)
+                                            end_origem = end_origem.format(
+                                                largura=l["nome"],
+                                                algoritmo=a["sigla"],
+                                                computador=c["nome"],
+                                                ano=ano,
+                                                mes=mes,
+                                                dia=dia
+                                            )
+
+                                            end_destino = os.path.join(PASTA_BASE_MES, ARQ_NOME_DATA)
+                                            end_destino = end_destino.format(
+                                                largura=l["nome"],
+                                                algoritmo=a["sigla"],
+                                                computador=c["nome"],
+                                                ano=ano,
+                                                mes=mes,
+                                                dia=dia
+                                            )
+
+                                            shutil.copyfile(end_origem, end_destino)
                                         
-                                        end_origem = os.path.join(PASTA_DATA_MES, ARQ_NOME_DATA)
-                                        end_origem = end_origem.format(
-                                            largura=l["nome"],
-                                            algoritmo=a["sigla"],
-                                            computador=c["nome"],
-                                            ano=ano,
-                                            mes=mes,
-                                            dia=dia
-                                        )
-
-                                        end_destino = os.path.join(PASTA_BASE_MES, ARQ_NOME_DATA)
-                                        end_destino = end_destino.format(
-                                            largura=l["nome"],
-                                            algoritmo=a["sigla"],
-                                            computador=c["nome"],
-                                            ano=ano,
-                                            mes=mes,
-                                            dia=dia
-                                        )
-
-                                        shutil.copyfile(end_origem, end_destino)
