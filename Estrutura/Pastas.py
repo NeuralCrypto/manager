@@ -1,6 +1,7 @@
 from A_Constantes.Pastas        import *
 from A_Constantes.Computadores  import COMPUTADORES
 from A_Constantes.Algoritmos    import *
+from shutil import copytree, ignore_patterns
 
 class Pastas:
 
@@ -78,8 +79,11 @@ class Pastas:
                                     )
                         try:
                             os.makedirs(endereco)
+                            end_cliente = os.path.join(PASTA_INICIAL, "Cliente")
+                            copytree(end_cliente, endereco, ignore=ignore_patterns(".git", ".vscode"))
                         except:
                             continue
+
 
                         # Pasta Resultados
                         endereco = None

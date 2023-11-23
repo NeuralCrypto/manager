@@ -185,11 +185,14 @@ class Camadas:
         camadas     = {}
         topologia   = self.topologias["MB"]
         indice      = topologia["tamanhos"].index(tam_bloco)
+
+        letras_maximo = self.__iniciarNomes(topologia["camadas"][indice])
         
         for c in range(1, topologia["camadas"][indice]):
 
             fator  = topologia["fator"][indice][c-1]
-            letras = next(item for item in self.blocos if item["tam"] == fator)["estrutura"]
+            #letras = next(item for item in self.blocos if item["tam"] == fator)["estrutura"]
+            letras = letras_maximo[0:c]
             nome_camada = self.nomes_modelo[0].format(
                 indice      = c,
                 letra       = letras,
@@ -218,3 +221,8 @@ class Camadas:
         camadas[c]["CA_KERNEL"]  = peso
 
         return camadas
+    
+    def __iniciarNomes(self, tamanho):
+        conjunto = "ABCDEFGH"
+        maximo = conjunto[0:tamanho][::-1]
+        return maximo

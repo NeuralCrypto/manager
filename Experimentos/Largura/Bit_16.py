@@ -14,7 +14,7 @@ class Bit_16:
         blocos      = int(computador["blocos"]/TAMANHO_LARGURA)                          # Tamanho do bloco
         estado      = HIPER_PARAMETROS["estado"     ][0]                                 # Estado de execução
         tipo_exp    = HIPER_PARAMETROS["tipo_exp"   ][0]                                 # Tipo de experimento (MC)
-        epocas      = HIPER_PARAMETROS["epocas"     ][0]                                 # Quantidade de épocas
+        #epocas      = HIPER_PARAMETROS["epocas"     ][0]                                 # Quantidade de épocas (Desuso)
         batch       = HIPER_PARAMETROS["batch"      ][0]                                 # Quantidade de Batch
         otimizador  = HIPER_PARAMETROS["otimizador" ][0]                                 # Otimizador
         perda       = HIPER_PARAMETROS["perda"      ][0]                                 # Perda
@@ -31,39 +31,40 @@ class Bit_16:
                     for base in computador["bases"]:                                         # Tamanho das bases
                         for peso in HIPER_PARAMETROS["pesos"]:                               # Pesos
                             for chave in HIPER_PARAMETROS["chaves"][algoritmo]:              # Tamanho das chaves
+                                for epocas in HIPER_PARAMETROS["epocas"]:                    # Quantidade de épocas
 
-                                nome_exp      = HIPER_PARAMETROS["nome_exp"][0].format(         # Nome do experimento
-                                    blocos    = blocos,
-                                    modo      = modo,
-                                    tipo_exp  = tipo_exp,
-                                    base      = base,
-                                    chave     = chave,
-                                    topologia = topologia,
-                                    indice    = indice
-                                )
+                                    nome_exp      = HIPER_PARAMETROS["nome_exp"][0].format(         # Nome do experimento
+                                        blocos    = blocos,
+                                        modo      = modo,
+                                        tipo_exp  = tipo_exp,
+                                        base      = base,
+                                        chave     = chave,
+                                        topologia = topologia,
+                                        indice    = indice
+                                    )
 
-                                camadas   = Camadas(NOME_CAMADAS, HIPER_PARAMETROS["topologia"][algoritmo], ALGORITMO_BLOCOS[algoritmo])
-                                cam_dados = camadas.escolher(topologia, blocos, peso)
+                                    camadas   = Camadas(NOME_CAMADAS, HIPER_PARAMETROS["topologia"][algoritmo], ALGORITMO_BLOCOS[algoritmo])
+                                    cam_dados = camadas.escolher(topologia, blocos, peso)
 
-                                arquivo.adicionar(
-                                    indice      = indice,
-                                    estado      = estado, 
-                                    computador  = computador["nome"],
-                                    nome_exp    = nome_exp,
-                                    tam_blocos  = blocos,
-                                    modo        = modo,
-                                    tipo_exp    = tipo_exp,
-                                    tam_base    = base,
-                                    tam_chave   = chave,
-                                    topologia   = topologia,
-                                    camadas     = cam_dados, 
-                                    epocas      = epocas, 
-                                    batch       = batch, 
-                                    otimizador  = otimizador, 
-                                    perda       = perda
-                                )
+                                    arquivo.adicionar(
+                                        indice      = indice,
+                                        estado      = estado, 
+                                        computador  = computador["nome"],
+                                        nome_exp    = nome_exp,
+                                        tam_blocos  = blocos,
+                                        modo        = modo,
+                                        tipo_exp    = tipo_exp,
+                                        tam_base    = base,
+                                        tam_chave   = chave,
+                                        topologia   = topologia,
+                                        camadas     = cam_dados, 
+                                        epocas      = epocas, 
+                                        batch       = batch, 
+                                        otimizador  = otimizador, 
+                                        perda       = perda
+                                    )
 
-                                indice += 1
+                                    indice += 1
                 arquivo.fechar()
 
 

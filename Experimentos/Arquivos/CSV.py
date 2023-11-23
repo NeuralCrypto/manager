@@ -20,8 +20,12 @@ class CSV:
         * computador: É o nome do computador onde executará os experimentos.
         """
         endereco = os.path.join(PASTA_EXP_CSV, ARQ_EXP_CSV)
+        if topologia == "S1":
+            estado = "E"
+        else:
+            estado = "N"
         arquivo  = endereco.format(
-            estado      = "N",
+            estado      = estado,
             largura     = largura,
             algoritmo   = algoritmo,
             topologia   = topologia,

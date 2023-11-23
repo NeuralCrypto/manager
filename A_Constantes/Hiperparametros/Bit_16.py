@@ -25,15 +25,15 @@ TAMANHOS_NEUR_AES_MB = [int(128*i/TAMANHO_LARGURA) for i in range(2, 5)]
 CAMADAS_MB_DES    = [i for i in range(2, 9, 2)]
 CAMADAS_MB_AES    = [2, 3, 4]
 
-FUNCOES           = ["R", "Q"]
+FUNCOES           = ["Q1.0", "A1.0"]
 
 
 TOPO_DES = {
-    "S1": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [2],  "fator": [4], "funcoes": FUNCOES},
+    "S1": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [2],  "fator": [1], "funcoes": FUNCOES},
 
-    "D1": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [10], "fator": [1], "funcoes": ["R", "R", "R", "R", "R", "R", "R", "R", "R", "Q"]},
-    "D2": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [12], "fator": [1], "funcoes": ["R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "Q"]},
-    "D3": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [14], "fator": [1], "funcoes": ["R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "Q"]},
+    "D1": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [10], "fator": [1], "funcoes": ["Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "A1.0"]},
+    "D2": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [12], "fator": [1], "funcoes": ["Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "A1.0"]},
+    "D3": {"tamanhos":TAMANHOS_NEUR_DES, "camadas": [14], "fator": [1], "funcoes": ["Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "A1.0"]},
 
     "MB": {
         "tamanhos": TAMANHOS_NEUR_DES_MB, 
@@ -44,11 +44,11 @@ TOPO_DES = {
 }
 
 TOPO_AES = {
-    "S1": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [2],  "fator": [4], "funcoes": ["R", "Q"]},
+    "S1": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [2],  "fator": [1], "funcoes": ["Q1.0", "A1.0"]},
 
-    "D1": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [10], "fator": [1], "funcoes": ["R", "R", "R", "R", "R", "R", "R", "R", "R", "Q"]},
-    "D2": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [12], "fator": [1], "funcoes": ["R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "Q"]},
-    "D3": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [14], "fator": [1], "funcoes": ["R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "Q"]},
+    "D1": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [10], "fator": [1], "funcoes": ["Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "A1.0"]},
+    "D2": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [12], "fator": [1], "funcoes": ["Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "A1.0"]},
+    "D3": {"tamanhos":TAMANHOS_NEUR_AES, "camadas": [14], "fator": [1], "funcoes": ["Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "Q1.0", "A1.0"]},
 
     "MB":{
         "tamanhos": TAMANHOS_NEUR_AES_MB, 
@@ -110,8 +110,8 @@ HIPER_PARAMETROS = {
     
     "pesos"       : ["ZEROS", "VS-TN-FO-0.01"],
     
-    "epocas"      : ["E-100"],
+    "epocas"      : ["E-100", "E-500", "E-1000", "E-2000"],
     "batch"       : ["B-32"],
-    "otimizador"  : ["SGD-T-0.1-0.25"],
+    "otimizador"  : ["SGD-T-0.01-0.25"],
     "perda"       : ["mse"]
 }
