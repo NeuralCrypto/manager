@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"python.pythonPath": "/home/lucas/Mestrado/Neuro/neuro_crypto/bin/python"
+		},
+		"gitProjectManager.ignoredFolders": [
+			"**/__pycache__/**"
+		]
+	}
+}
